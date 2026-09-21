@@ -3,245 +3,320 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khurram Electronics - CCTV & Security Cameras</title>
+    <title>Khurram Electronics | Rawalpindi</title>
     <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #ff9800;
+            --accent-hover: #e68900;
+            --border-color: #333;
+        }
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
         body {
-            background-color: #0b132b;
-            color: #ffffff;
-            position: relative;
-            min-height: 100vh;
-        }
-        /* Custom Background Image */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: linear-gradient(rgba(11, 19, 43, 0.88), rgba(11, 19, 43, 0.92)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-        }
-        header {
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.95));
-            color: white;
-            padding: 35px 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border-bottom: 2px solid rgba(56, 189, 248, 0.5);
-        }
-        header h1 {
-            font-size: 2.6rem;
-            margin-bottom: 5px;
-            letter-spacing: 0.5px;
-        }
-        header p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            margin-bottom: 15px;
-        }
-        .contact-info {
-            background: rgba(30, 41, 59, 0.85);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 8px;
-            font-size: 1rem;
-            color: #f1f5f9;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .section-title {
+        /* Timings & Info Bar */
+        .info-bar {
+            background-color: var(--accent-color);
+            color: #000;
             text-align: center;
-            margin-bottom: 35px;
-            font-size: 2.2rem;
-            color: #38bdf8;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            padding: 8px;
+            font-weight: bold;
+            font-size: 14px;
         }
+        header {
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+        header h1 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 14px;
+            color: #aaa;
+        }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Search Bar */
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-container input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            outline: none;
+        }
+        .search-container input:focus {
+            border-color: var(--accent-color);
+        }
+        /* Section Titles */
+        h2.section-title {
+            margin: 30px 0 15px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 5px;
+            font-size: 22px;
+            color: var(--accent-color);
+        }
+        /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
         .product-card {
-            background: rgba(30, 41, 59, 0.92);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.2s;
         }
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: #38bdf8;
+            border-color: var(--accent-color);
         }
-        .product-img {
-            height: 200px;
-            width: 100%;
-            object-fit: contain;
-            padding: 10px;
-            background-color: #0f172a;
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 18px;
         }
-        .shop-img {
-            height: 220px;
-            width: 100%;
-            object-fit: cover;
-        }
-        .product-info {
-            padding: 20px;
-        }
-        .product-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: #f8fafc;
-        }
-        .product-info p {
-            font-size: 0.95rem;
-            color: #cbd5e1;
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-        .price {
-            font-size: 1.2rem;
-            color: #38bdf8;
+        .product-card p {
+            color: var(--accent-color);
             font-weight: bold;
             margin-bottom: 15px;
         }
-        .contact-btn {
-            display: block;
-            width: 100%;
-            background-color: #22c55e;
-            color: white;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
+            padding: 10px 15px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
         }
-        .contact-btn:hover {
-            background-color: #16a34a;
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+        /* Shop Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+        /* Reviews Section */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .review-card {
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+        .review-card p {
+            font-style: italic;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .review-card span {
+            font-weight: bold;
+            color: var(--accent-color);
+            font-size: 13px;
+        }
+        /* Contact Form */
+        .contact-section {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+        }
+        /* Floating WhatsApp Button */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 12px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .float-whatsapp:hover {
+            background-color: #20ba5a;
         }
         footer {
-            background-color: rgba(11, 15, 25, 0.95);
-            color: #94a3b8;
             text-align: center;
-            padding: 25px 0;
-            margin-top: 60px;
-            border-top: 1px solid #1e293b;
+            padding: 20px;
+            background-color: var(--card-bg);
+            margin-top: 40px;
+            font-size: 14px;
+            border-top: 1px solid var(--border-color);
         }
     </style>
 </head>
 <body>
 
+    <!-- Timings & Info Bar -->
+    <div class="info-bar">
+        🕒 Shop Timings: 9:00 AM to 9:00 PM (Monday to Saturday) | 📍 Shop No. 8-A, Shaheen Market, DAV College Road, Rawalpindi
+    </div>
+
     <header>
         <h1>Khurram Electronics</h1>
-        <p>Your Trusted Partner for High-Quality CCTV & Security Cameras</p>
-        <div class="contact-info">
-            📍 Address: Shop No. 8-A, Shaheen Market DAV College Road, Rawalpindi<br>
-            📞 Phone: 051-4807682 | 📱 Mobile: 0332-5809091
-        </div>
+        <p>Your Trusted Electronics Partner in Rawalpindi</p>
     </header>
 
     <div class="container">
-        <!-- Shop & Market Pictures Section -->
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products (e.g., Fan, LED, Iron)..." onkeyup="searchProducts()">
+        </div>
+
+        <!-- Products Section -->
+        <h2 class="section-title">Our Products</h2>
+        <div class="products-grid" id="productGrid">
+            <div class="product-card" data-name="LED TV">
+                <h3>LED TV</h3>
+                <p>Best Quality & Warranty</p>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20LED%20TV" class="btn" target="_blank">Inquire on WhatsApp</a>
+            </div>
+            <div class="product-card" data-name="Room Cooler">
+                <h3>Room Cooler</h3>
+                <p>Heavy Duty Air Throw</p>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Room%20Cooler" class="btn" target="_blank">Inquire on WhatsApp</a>
+            </div>
+            <div class="product-card" data-name="Electric Iron">
+                <h3>Electric Iron</h3>
+                <p>Energy Efficient</p>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Electric%20Iron" class="btn" target="_blank">Inquire on WhatsApp</a>
+            </div>
+            <div class="product-card" data-name="Stand Fan">
+                <h3>Stand Fan</h3>
+                <p>High Speed Copper Wire</p>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Stand%20Fan" class="btn" target="_blank">Inquire on WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Shop Gallery Section -->
         <h2 class="section-title">Our Shop & Market Location</h2>
-        <div class="products-grid" style="margin-bottom: 50px;">
-            <!-- Market Front -->
-            <div class="product-card">
-                <img src="front markit.jpeg" alt="Shaheen Market Front View" class="shop-img">
-                <div class="product-info">
-                    <h3>Shaheen Market Front</h3>
-                    <p>Market entrance and outer view located on DAV College Road, Rawalpindi.</p>
-                </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="front markit.jpeg" alt="Market Front">
             </div>
-
-            <!-- Shop Front -->
-            <div class="product-card">
-                <img src="shop front.jpeg" alt="Khurram Electronics Shop Front" class="shop-img">
-                <div class="product-info">
-                    <h3>Shop Front View</h3>
-                    <p>Shop No. 8-A exterior view showing our security camera displays and sign board.</p>
-                </div>
+            <div class="gallery-item">
+                <img src="shop front.jpeg" alt="Shop Front">
             </div>
-
-            <!-- Shop Inside -->
-            <div class="product-card">
-                <img src="shop inside.jpeg" alt="Inside Khurram Electronics" class="shop-img">
-                <div class="product-info">
-                    <h3>Inside the Shop</h3>
-                    <p>A look inside our shop where we deal in all kinds of security systems and electronics.</p>
-                </div>
+            <div class="gallery-item">
+                <img src="shop inside.jpeg" alt="Shop Inside">
             </div>
         </div>
 
-        <!-- Featured Products Section -->
-        <h2 class="section-title">Our Featured Security Cameras</h2>
-        
-        <div class="products-grid">
-            <!-- Camera 1 -->
-            <div class="product-card">
-                <img src="product-camera 1.webp" alt="Smart HD Dome Camera" class="product-img">
-                <div class="product-info">
-                    <h3>Smart HD Dome Camera</h3>
-                    <p>Crystal clear night vision, indoor security monitoring with wide-angle lens.</p>
-                    <div class="price">Contact for Price</div>
-                    <a href="https://wa.me/923325809091?text=I%20am%20interested%20in%20Smart%20HD%20Dome%20Camera" target="_blank" class="contact-btn">Call Now</a>
-                </div>
+        <!-- Customer Reviews Section -->
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <p>"Best electronic items available in Shaheen Market at very reasonable wholesale prices."</p>
+                <span>- Usman Ali (Rawalpindi)</span>
             </div>
-
-            <!-- Camera 2 -->
-            <div class="product-card">
-                <img src="camera 2.png" alt="Outdoor PTZ Camera" class="product-img">
-                <div class="product-info">
-                    <h3>Outdoor PTZ Security Camera</h3>
-                    <p>Weatherproof, 360-degree rotation, mobile app support and motion tracking.</p>
-                    <div class="price">Contact for Price</div>
-                    <a href="https://wa.me/923325809091?text=I%20am%20interested%20in%20Outdoor%20PTZ%20Security%20Camera" target="_blank" class="contact-btn">Call Now</a>
-                </div>
-            </div>
-
-            <!-- Camera 3 -->
-            <div class="product-card">
-                <img src="camera 3.png" alt="Wireless IP Camera" class="product-img">
-                <div class="product-info">
-                    <h3>Wireless Smart IP Camera</h3>
-                    <p>Easy plug-and-play setup, two-way audio communication, and cloud storage.</p>
-                    <div class="price">Contact for Price</div>
-                    <a href="https://wa.me/923325809091?text=I%20am%20interested%20in%20Wireless%20Smart%20IP%20Camera" target="_blank" class="contact-btn">Call Now</a>
-                </div>
-            </div>
-
-            <!-- Camera 4 -->
-            <div class="product-card">
-                <img src="camera 4.png" alt="DVR / NVR Kit" class="product-img">
-                <div class="product-info">
-                    <h3>Complete 4-Channel DVR Kit</h3>
-                    <p>Complete security package including cameras, cables, and storage recorder.</p>
-                    <div class="price">Contact for Price</div>
-                    <a href="https://wa.me/923325809091?text=I%20am%20interested%20in%20Complete%204-Channel%20DVR%20Kit" target="_blank" class="contact-btn">Call Now</a>
-                </div>
+            <div class="review-card">
+                <p>"Very cooperative staff and 100% genuine products with proper checking."</p>
+                <span>- Tariq Mehmood</span>
             </div>
         </div>
+
+        <!-- Contact Form Section -->
+        <h2 class="section-title">Send Us a Message</h2>
+        <div class="contact-section">
+            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="phone" placeholder="Your Phone Number" required>
+                <textarea name="message" rows="4" placeholder="Your Message or Inquiry..." required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
     </div>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/923325809091" class="float-whatsapp" target="_blank">
+        💬 Chat on WhatsApp
+    </a>
+
     <footer>
-        <p>&copy; 2026 Khurram Electronics. All Rights Reserved.</p>
+        <p>&copy; 2026 Khurram Electronics, Shaheen Market, DAV College Road, Rawalpindi. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Simple Search Filter Function
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
