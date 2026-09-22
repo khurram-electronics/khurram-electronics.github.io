@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khurram Electronics | Rawalpindi</title>
-    <!-- FontAwesome for WhatsApp Icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --bg-color: #121212;
@@ -54,6 +52,25 @@
             margin: auto;
             padding: 20px;
         }
+        /* Search Bar */
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-container input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            outline: none;
+        }
+        .search-container input:focus {
+            border-color: var(--accent-color);
+        }
         /* Section Titles */
         h2.section-title {
             margin: 30px 0 15px;
@@ -90,12 +107,9 @@
             margin-bottom: 15px;
         }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background-color: #25d366;
-            color: #fff;
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #000;
             padding: 10px 15px;
             border-radius: 5px;
             text-decoration: none;
@@ -104,7 +118,7 @@
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #20ba5a;
+            background-color: var(--accent-hover);
         }
         /* Shop Gallery */
         .gallery-grid {
@@ -140,6 +154,29 @@
             font-weight: bold;
             color: var(--accent-color);
             font-size: 13px;
+        }
+        /* Contact Form */
+        .contact-section {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
         }
         /* Floating WhatsApp Button */
         .float-whatsapp {
@@ -185,36 +222,33 @@
 
     <div class="container">
 
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products (e.g., Fan, LED, Iron)..." onkeyup="searchProducts()">
+        </div>
+
         <!-- Products Section -->
         <h2 class="section-title">Our Products</h2>
-        <div class="products-grid">
-            <div class="product-card">
+        <div class="products-grid" id="productGrid">
+            <div class="product-card" data-name="LED TV">
                 <h3>LED TV</h3>
                 <p>Best Quality & Warranty</p>
-                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20LED%20TV" class="btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20LED%20TV" class="btn" target="_blank">Inquire on WhatsApp</a>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-name="Room Cooler">
                 <h3>Room Cooler</h3>
                 <p>Heavy Duty Air Throw</p>
-                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Room%20Cooler" class="btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Room%20Cooler" class="btn" target="_blank">Inquire on WhatsApp</a>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-name="Electric Iron">
                 <h3>Electric Iron</h3>
                 <p>Energy Efficient</p>
-                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Electric%20Iron" class="btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Electric%20Iron" class="btn" target="_blank">Inquire on WhatsApp</a>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-name="Stand Fan">
                 <h3>Stand Fan</h3>
                 <p>High Speed Copper Wire</p>
-                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Stand%20Fan" class="btn" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
+                <a href="https://wa.me/923325809091?text=I%20want%20to%20inquire%20about%20Stand%20Fan" class="btn" target="_blank">Inquire on WhatsApp</a>
             </div>
         </div>
 
@@ -245,16 +279,44 @@
             </div>
         </div>
 
+        <!-- Contact Form Section -->
+        <h2 class="section-title">Send Us a Message</h2>
+        <div class="contact-section">
+            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="phone" placeholder="Your Phone Number" required>
+                <textarea name="message" rows="4" placeholder="Your Message or Inquiry..." required></textarea>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
     </div>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/923325809091" class="float-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp fa-lg"></i> WhatsApp
+        💬 Chat on WhatsApp
     </a>
 
     <footer>
         <p>&copy; 2026 Khurram Electronics, Shaheen Market, DAV College Road, Rawalpindi. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // Simple Search Filter Function
+        function searchProducts() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('product-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                let name = cards[i].getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
