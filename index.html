@@ -138,51 +138,6 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
-        /* Reviews Section */
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .review-card {
-            background-color: var(--card-bg);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent-color);
-        }
-        .review-card p {
-            font-style: italic;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .review-card span {
-            font-weight: bold;
-            color: var(--accent-color);
-            font-size: 13px;
-        }
-        /* Contact Form */
-        .contact-section {
-            background-color: var(--card-bg);
-            padding: 25px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            max-width: 600px;
-            margin: 30px auto;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            border-radius: 5px;
-            font-size: 15px;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: var(--accent-color);
-            outline: none;
-        }
         /* Floating WhatsApp Button */
         .float-whatsapp {
             position: fixed;
@@ -277,30 +232,6 @@
             <div class="gallery-item">
                 <img src="shop inside.jpeg" alt="Shop Inside">
             </div>
-        </div>
-
-        <!-- Customer Reviews Section -->
-        <h2 class="section-title">Customer Reviews</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <p>"Best electronic items available in Shaheen Market at very reasonable wholesale prices."</p>
-                <span>- Usman Ali (Rawalpindi)</span>
-            </div>
-            <div class="review-card">
-                <p>"Very cooperative staff and 100% genuine products with proper checking."</p>
-                <span>- Tariq Mehmood</span>
-            </div>
-        </div>
-
-        <!-- Contact Form Section -->
-        <h2 class="section-title">Send Us a Message</h2>
-        <div class="contact-section">
-            <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="text" name="phone" placeholder="Your Phone Number" required>
-                <textarea name="message" rows="4" placeholder="Your Message or Inquiry..." required></textarea>
-                <button type="submit" class="btn" style="width: 100%; background-color: var(--accent-color); color: #000;">Send Message</button>
-            </form>
         </div>
 
     </div>
